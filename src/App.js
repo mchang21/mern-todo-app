@@ -3,7 +3,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { BrowserRouter as Router, Route, Link, Routes } from "react-router-dom";
 
 import CreateTodo from "./components/create-todo.component";
-import EditTodo  from "./components/edit-todo.component";
+import EditTodo from "./components/edit-todo.component";
 import TodosList from "./components/todos-list.component";
 
 import logo from "./logo.svg"
@@ -30,15 +30,15 @@ class App extends Component {
               </ul>
             </div>
           </nav>
-          <br/>
+          <br />
 
-            <Routes>
-              <Route path="/" exact element ={<TodosList/>} />
-              <Route path="/edit/:id" element={<EditTodo/>} />
-              <Route path="/create" element={<CreateTodo/>} />
-            </Routes>
+          <Routes>
+            <Route path="/" exact element={<TodosList />} />
+            <Route path="/edit/:id" element={<EditTodo />} />
+            <Route path="/create" element={<CreateTodo />} />
+          </Routes>
         </div>
-        
+
       </Router>
 
     );
