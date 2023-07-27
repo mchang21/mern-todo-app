@@ -6,6 +6,7 @@ const CreateTodo = () => {
         todo_description: '',
         todo_responsible: '',
         todo_priority: 'Low',
+        todo_completed: false
     });
 
     const onChange = (e) => {
@@ -32,6 +33,7 @@ const CreateTodo = () => {
             todo_description: '',
             todo_responsible: '',
             todo_priority: 'Low',
+            todo_completed: false
         });
     };
 
