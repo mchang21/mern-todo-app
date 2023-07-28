@@ -1,7 +1,10 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
 const CreateTodo = () => {
+    const navigate = useNavigate();
+
     const [todo, setTodo] = useState({
         todo_description: '',
         todo_responsible: '',
@@ -35,6 +38,8 @@ const CreateTodo = () => {
             todo_priority: 'Low',
             todo_completed: false
         });
+
+        navigate('/');
     };
 
     return (
