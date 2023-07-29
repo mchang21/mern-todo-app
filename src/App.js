@@ -1,7 +1,6 @@
 import { React } from "react";
 import { Route, Link, Routes } from "react-router-dom";
 
-import CreateTodo from "./components/CreateTodo"
 import EditTodo from "./components/EditTodo";
 import TodosList from "./components/TodosList";
 
