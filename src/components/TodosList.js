@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Trash3 } from 'react-bootstrap-icons';
 import axios from 'axios';
-import CreateTodoModal from "./CreateTodoModal";
+import CreateTodo from './CreateTodo';
 
 const Todo = (props) => {
     // Handler function for the Trash icon onClick event
@@ -22,7 +22,7 @@ const Todo = (props) => {
             <td className={props.todo.todo_completed ? 'completed' : ''}>{props.todo.todo_priority}</td>
             <td>
                 <Link to={"/edit/" + props.todo._id}>Edit</Link>&nbsp;&nbsp;
-                <Trash3 
+                <Trash3
                     className="trash"
                     onClick={handleDelete}></Trash3>
             </td>
@@ -42,12 +42,21 @@ const TodosList = () => {
                 console.log(error);
             }
         };
-        
+
         fetchTodos();
     }, []);
-    
+
     const handleDeleteTodo = (id) => {
         setTodos((prevTodos) => prevTodos.filter(todo => todo._id !== id));
+    };
+
+    const handleAddTodo = async (response, handleClose) => {
+        try {
+            setTodos(response.data)
+            handleClose(); // Close the Modal after adding the todo
+        } catch (error) {
+            console.log('Error adding todo: ', error);
+        }
     };
 
     const todoList = () => {
@@ -70,7 +79,7 @@ const TodosList = () => {
                 </thead>
                 <tbody>{todoList()}</tbody>
             </table>
-            <CreateTodoModal></CreateTodoModal>
+            <CreateTodo handleAddTodo={handleAddTodo}></CreateTodo>
         </div>
     );
 };
