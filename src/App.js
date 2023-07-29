@@ -1,9 +1,9 @@
 import { React } from "react";
 import { Route, Link, Routes } from "react-router-dom";
 
-import CreateTodo from "./components/create-todo.component"
-import EditTodo from "./components/edit-todo.component";
-import TodosList from "./components/todos-list.component";
+import CreateTodo from "./components/CreateTodo"
+import EditTodo from "./components/EditTodo";
+import TodosList from "./components/TodosList";
 
 import logo from "./logo.svg";
 
@@ -37,7 +37,7 @@ const App = () => {
         <Route path="/edit/:id" element={<EditTodo />} />
         <Route path="/create" element={<CreateTodo />} />
       </Routes>
-      
+
     </div>
   );
 };

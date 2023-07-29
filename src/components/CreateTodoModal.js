@@ -1,5 +1,5 @@
 import React from "react";
-import CreateTodo from "./create-todo.component";
+import CreateTodo from "./CreateTodo";
 import { Button, Modal } from "react-bootstrap";
 import { useModal } from "../contexts/ModalContext";
 
