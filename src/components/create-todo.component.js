@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import { useModal } from "../contexts/ModalContext";
 
 const CreateTodo = () => {
-    const navigate = useNavigate();
+    const { closeModal } = useModal();
 
     const [todo, setTodo] = useState({
         todo_description: '',
@@ -30,7 +30,10 @@ const CreateTodo = () => {
         console.log(`Todo Priority: ${todo.todo_priority}`);
 
         axios.post('http://localhost:4000/todos/add', todo)
-            .then((res) => console.log(res.data));
+            .then((res => {
+                console.log(res.data);
+                closeModal();
+            }))
 
         setTodo({
             todo_description: '',
@@ -39,12 +42,10 @@ const CreateTodo = () => {
             todo_completed: false
         });
 
-        navigate('/');
     };
 
     return (
         <div style={{ marginTop: 10 }}>
-            <h3>Create New Todo</h3>
             <form onSubmit={onSubmit}>
                 <div className="form-group">
                     <label>Description: </label>
@@ -101,6 +102,7 @@ const CreateTodo = () => {
                         <label className="form-check-label">High</label>
                     </div>
                 </div>
+                <br></br>
                 <div className="form-group">
                     <input type="submit" value="Create Todo" className="btn btn-primary" />
                 </div>
