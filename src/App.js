@@ -35,7 +35,6 @@ const App = () => {
       <Routes>
         <Route path="/" element={<TodosList />} />
         <Route path="/edit/:id" element={<EditTodo />} />
-        <Route path="/create" element={<CreateTodo />} />
       </Routes>
 
     </div>
