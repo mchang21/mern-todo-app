@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Trash3 } from 'react-bootstrap-icons';
 import axios from 'axios';
+import CreateTodoModal from "./create-todo-modal";
 
 const Todo = (props) => {
     // Handler function for the Trash icon onClick event
@@ -69,6 +70,7 @@ const TodosList = () => {
                 </thead>
                 <tbody>{todoList()}</tbody>
             </table>
+            <CreateTodoModal></CreateTodoModal>
         </div>
     );
 };
