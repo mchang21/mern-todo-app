@@ -9,7 +9,6 @@ const Todo = (props) => {
     const handleDelete = async () => {
         try {
             await axios.delete(`http://localhost:4000/todos/${props.todo._id}`);
-            props.onDelete(props.todo._id); // Call the onDelete function passed from the parent component
         } catch (error) {
             console.log("Error deleting todo: ", error);
         }
@@ -46,10 +45,6 @@ const TodosList = () => {
         fetchTodos();
     }, [todos]);
 
-    const handleDeleteTodo = (id) => {
-        setTodos((prevTodos) => prevTodos.filter(todo => todo._id !== id));
-    };
-
     const handleAddTodo = async (response, handleClose) => {
         try {
             setTodos(response.data)
@@ -61,7 +56,7 @@ const TodosList = () => {
 
     const todoList = () => {
         return todos.map((currentTodo) => (
-            <Todo todo={currentTodo} key={currentTodo._id} onDelete={handleDeleteTodo} />
+            <Todo todo={currentTodo} key={currentTodo._id}/>
         ));
     };
 
