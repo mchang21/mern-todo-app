@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
 import { Trash3 } from 'react-bootstrap-icons';
 import axios from 'axios';
 import CreateTodo from './CreateTodo';
+import EditTodo from './EditTodo';
 
 const Todo = (props) => {
     // Handler function for the Trash icon onClick event
@@ -21,7 +21,7 @@ const Todo = (props) => {
             <td className={props.todo.todo_completed ? 'completed' : ''}>{props.todo.todo_responsible}</td>
             <td className={props.todo.todo_completed ? 'completed' : ''}>{props.todo.todo_priority}</td>
             <td>
-                <Link to={"/edit/" + props.todo._id}>Edit</Link>&nbsp;&nbsp;
+                <EditTodo id={props.todo._id}></EditTodo>
                 <Trash3
                     className="trash"
                     onClick={handleDelete}></Trash3>
@@ -44,7 +44,7 @@ const TodosList = () => {
         };
 
         fetchTodos();
-    }, []);
+    }, [todos]);
 
     const handleDeleteTodo = (id) => {
         setTodos((prevTodos) => prevTodos.filter(todo => todo._id !== id));
