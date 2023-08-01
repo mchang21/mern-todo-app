@@ -32,7 +32,7 @@ const CreateTodo = (props) => {
         try {
             await axios.post('http://localhost:4000/todos/add', todo);
             const response = await axios.get('http://localhost:4000/todos/');
-            props.handleAddTodo(response, handleClose); // Call the onAddTodo function passed from the parent component
+            props.handleAddTodo(response, handleClose); // Call the handleAddTodo function passed from the parent component
         } catch (error) {
             console.log('Error adding todo: ', error);
         }
@@ -49,7 +49,7 @@ const CreateTodo = (props) => {
     return (
         <>
             <Button variant="primary" onClick={handleShow}>
-                Create Todo
+                <b>+</b> Create Todo
             </Button>
 
             <Modal show={show} onHide={handleClose} backdrop={"static"}>
@@ -88,7 +88,7 @@ const CreateTodo = (props) => {
                                     checked={todo.todo_priority === 'Low'}
                                     onChange={onChange}
                                 />
-                                <label className="form-check-label">Low</label>
+                                <label className="form-check-label" style={{ color: 'green' }}>Low</label>
                             </div>
                             <div className="form-check form-check-inline">
                                 <input
@@ -99,7 +99,7 @@ const CreateTodo = (props) => {
                                     checked={todo.todo_priority === 'Medium'}
                                     onChange={onChange}
                                 />
-                                <label className="form-check-label">Medium</label>
+                                <label className="form-check-label" style={{ color: 'orange' }}>Medium</label>
                             </div>
                             <div className="form-check form-check-inline">
                                 <input
@@ -110,7 +110,7 @@ const CreateTodo = (props) => {
                                     checked={todo.todo_priority === 'High'}
                                     onChange={onChange}
                                 />
-                                <label className="form-check-label">High</label>
+                                <label className="form-check-label" style={{ color: 'red' }}>High</label>
                             </div>
                         </div>
                         <br></br>
