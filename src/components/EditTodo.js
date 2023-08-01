@@ -112,7 +112,7 @@ const EditTodo = ({ id }) => {
                                     checked={todo.todo_priority === 'Low'}
                                     onChange={onChangeTodoPriority}
                                 />
-                                <label className="form-check-label">Low</label>
+                                <label className="form-check-label" style={{ color: 'green' }}>Low</label>
                             </div>
                             <div className="form-check form-check-inline">
                                 <input
@@ -124,7 +124,7 @@ const EditTodo = ({ id }) => {
                                     checked={todo.todo_priority === 'Medium'}
                                     onChange={onChangeTodoPriority}
                                 />
-                                <label className="form-check-label">Medium</label>
+                                <label className="form-check-label" style={{ color: 'orange' }}>Medium</label>
                             </div>
                             <div className="form-check form-check-inline">
                                 <input
@@ -136,7 +136,7 @@ const EditTodo = ({ id }) => {
                                     checked={todo.todo_priority === 'High'}
                                     onChange={onChangeTodoPriority}
                                 />
-                                <label className="form-check-label">High</label>
+                                <label className="form-check-label" style={{ color: 'red' }}>High</label>
                             </div>
                         </div>
                         <div className="form-check">
